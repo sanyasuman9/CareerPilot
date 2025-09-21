@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Pilot - Courses</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0F1E3F, #213A56);
+      color: #fff;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(15, 30, 63, 0.95);
+      padding: 18px 50px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav .brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    nav .brand i {
+      color: #997953;
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+
+    nav .center-links {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav .center-links li {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+      color: #fff;
+    }
+
+    nav .center-links li i {
+      color: #CDAA80;
+    }
+
+    nav .center-links li.active {
+      color: #CDAA80;
+      font-weight: 700;
+      font-size: 1.1rem;     /* slightly bigger */
+      border-bottom: 3px solid #CDAA80;  /* underline */
+      padding-bottom: 5px;   /* space between text and underline */
+    }
+
+    nav .center-links li:hover {
+      color: #CDAA80;
+    }
+
+    nav .auth-buttons button {
+  width: 40px;
+  height: 40px;
+  background-color: #997953;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+nav .auth-buttons button:hover {
+  background-color: #CDAA80;
+  color: #0F1E3F;
+}
+
+
+    /* Main Content */
+    .content {
+      padding: 50px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #CDAA80;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #f1f1f1;
+    }
+
+    /* Search Bar */
+    .search-container {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 40px;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 12px 15px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+    }
+
+    .search-container button {
+      padding: 12px 25px;
+      background-color: #CDAA80;
+      border: none;
+      border-radius: 25px;
+      color: #0F1E3F;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .search-container button:hover {
+      background-color: #997953;
+      color: #fff;
+    }
+
+    /* Courses Grid */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .course-card {
+      background-color: #b5ddead8;
+      padding: 20px;
+      border-radius: 15px;
+      transition: transform 0.2s, box-shadow 0.2s;
+       color: #0F1E3F; /* dark text for readability */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .course-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+
+    .course-card h3 {
+      color: #0F1E3F;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      font-size: 0.95rem;
+      color: #0F1E3F;
+      margin-bottom: 10px;
+    }
+
+    .course-card a {
+      text-decoration: none;
+      color: #0056b3;
+      font-weight: 600;
+    }
+
+    .course-card a:hover {
+      color: #0F1E3F;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+      <a href="about.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+      <i class="fas fa-compass"></i> Career Pilot
+      </a>
+    </div>
+    <ul class="center-links">
+      <li onclick="window.location.href='chatbot.html'"><i class="fas fa-robot"></i> AI Chatbot</li>
+      <li onclick="window.location.href='roadmap.html'"><i class="fas fa-project-diagram"></i> Roadmaps</li>
+      <li class="active"><i class="fas fa-book-open"></i> Courses</li>
+    </ul>
+    <div class="auth-buttons">
+      <button><i class="fas fa-user-circle"></i></button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="content">
+    <h2>Recommended Courses</h2>
+    <p>Find Courses based on your Roles, Skills, and Interests.</p>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Enter roles, skills, or interests...">
+      <button id="searchBtn">Get Courses</button>
+    </div>
+
+    <!-- Courses Grid -->
+    <div class="courses-grid" id="coursesGrid">
+      <!-- Initial placeholder -->
+      <p style="color:#CDAA80;">Enter a role or skill and click "Get Courses" to see recommendations.</p>
+    </div>
+  </div>
+
+  <!-- JS to call Flask API -->
+  <script>
+    const searchBtn = document.getElementById('searchBtn');
+    const coursesGrid = document.getElementById('coursesGrid');
+    const searchInput = document.getElementById('searchInput');
+
+    searchBtn.addEventListener('click', async () => {
+      const query = searchInput.value.trim();
+      if (!query) return;
+
+      coursesGrid.innerHTML = ''; // Clear previous courses
+
+      try {
+        // Fetch recommendations from Flask API
+        const response = await fetch(`http://127.0.0.1:5000/recommend?query=${encodeURIComponent(query)}`);
+        const data = await response.json();
+        const recommendations = data.recommendations;
+
+        if (recommendations.length === 0) {
+          coursesGrid.innerHTML = `<p style="color:#CDAA80;">No courses found for "${query}".</p>`;
+          return;
+        }
+
+        // Render course cards
+        recommendations.forEach(course => {
+          const card = document.createElement('div');
+          card.classList.add('course-card');
+          card.innerHTML = `
+            <h3>${course["Title of Course"]}</h3>
+            <p><strong>Role:</strong> ${course["Roles"]}</p>
+            <p><strong>Skills:</strong> ${course["Skills"]}</p>
+            <p><strong>Platform:</strong> ${course["Platform"]}</p>
+            <a href="${course["URL"]}" target="_blank">View Course</a>
+          `;
+          coursesGrid.appendChild(card);
+        });
+
+      } catch (error) {
+        console.error('Error fetching courses:', error);
+        coursesGrid.innerHTML = `<p style="color:#CDAA80;">Failed to load courses. Please try again.</p>`;
+      }
+    });
+  </script>
+
+</body>
+</html>
+

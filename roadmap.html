@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Pilot - Roadmaps</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #143a8c, #4f8dd4);
+      color: #fff;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(15, 30, 63, 0.95);
+      padding: 18px 50px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav .brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    nav .brand i {
+      color: #997953;
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+
+    nav .center-links {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav .center-links li {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+      color: #fff;
+    }
+
+    nav .center-links li i {
+      color: #CDAA80;
+    }
+
+    nav .center-links li.active {
+      color: #CDAA80;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-bottom: 3px solid #CDAA80;
+      padding-bottom: 5px;
+    }
+
+    nav .center-links li:hover {
+      color: #CDAA80;
+    }
+
+    nav .user-icon button {
+      background-color: #997953;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1.5rem;
+    }
+
+    /* Roadmaps Section */
+    .roadmap-container {
+      padding: 50px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .roadmap-title {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #e9e0d6;
+    }
+
+    .roadmap-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .roadmap-card {
+      background-color: #213a56; /* mid blue */
+      padding: 1.5rem;
+      border-radius: 1rem;
+      width: 20rem;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .roadmap-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    }
+
+    .roadmap-card-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #e4ddd5;
+    }
+
+    .roadmap-steps {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    .roadmap-step {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.75rem;
+      padding: 0.5rem;
+      background-color: #997953; /* gold dark */
+      border-radius: 0.5rem;
+      color: #0f1e3f;
+      font-weight: 500;
+      transition: transform 0.2s ease, background 0.2s ease;
+      cursor: default;
+    }
+
+    .roadmap-step:hover {
+      transform: translateX(5px);
+      background-color: #e3be90;
+      color: #0f1e3f;
+    }
+
+    .step-icon {
+      color: #0f1e3f;
+    }
+
+    @media(max-width: 768px) {
+      .roadmap-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+        <a href="about.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+      <i class="fas fa-compass"></i> Career Pilot
+        </a>
+    </div>
+    <ul class="center-links">
+      <li onclick="window.location.href='chatbot.html'"><i class="fas fa-robot"></i> AI Chatbot</li>
+      <li class="active"><i class="fas fa-project-diagram"></i> Roadmaps</li>
+      <li onclick="window.location.href='pagecourse.html'"><i class="fas fa-book-open"></i> Courses</li>
+    </ul>
+    <div class="user-icon">
+      <button><i class="fas fa-user-circle"></i></button>
+    </div>
+  </nav>
+
+  <!-- Roadmaps Section -->
+  <div class="roadmap-container" id="roadmapContainer">
+    <h1 class="roadmap-title">Popular Career Roadmaps</h1>
+    <div class="roadmap-cards" id="roadmapCards">
+      <!-- JS will inject cards here -->
+    </div>
+  </div>
+
+  <script>
+    const roadmapsData = [
+      {
+        title: "Web Development",
+        steps: ["HTML & CSS Basics", "JavaScript Fundamentals", "React.js", "Backend with Node.js", "Deploy Projects"]
+      },
+      {
+        title: "Data Science",
+        steps: ["Python Basics", "Data Analysis with Pandas", "Data Visualization", "Machine Learning", "Portfolio Projects"]
+      },
+      {
+        title: "AI/ML Engineer",
+        steps: ["Python & Numpy", "Machine Learning", "Deep Learning", "NLP & Transformers", "Real-World Projects"]
+      }
+    ];
+
+    const container = document.getElementById("roadmapCards");
+
+    roadmapsData.forEach(roadmap => {
+      const card = document.createElement("div");
+      card.className = "roadmap-card";
+
+      const title = document.createElement("h2");
+      title.className = "roadmap-card-title";
+      title.textContent = roadmap.title;
+      card.appendChild(title);
+
+      const ul = document.createElement("ul");
+      ul.className = "roadmap-steps";
+
+      roadmap.steps.forEach(step => {
+        const li = document.createElement("li");
+        li.className = "roadmap-step";
+        li.innerHTML = `<i class="fas fa-check-circle step-icon"></i> ${step}`;
+        ul.appendChild(li);
+      });
+
+      card.appendChild(ul);
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>

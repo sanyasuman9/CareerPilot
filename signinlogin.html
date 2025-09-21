@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareerPilot - Auth</title>
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #0F1E3F, #213A56);
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      padding: 15px 30px;
+      background-color: #213a56;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    /* Container */
+    .auth-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* Card */
+    .auth-card {
+      background-color: #ffffff; /* lighter card */
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      color: #0F1E3F; /* darker text */
+      margin-top: 100px;
+    }
+
+    /* Heading */
+    .auth-card h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .form-group {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #213A56;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      font-size: 0.95rem;
+      color: #0F1E3F;
+    }
+
+    .form-group input::placeholder {
+      color: #666;
+    }
+
+    /* Buttons */
+    .btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s ease;
+    }
+
+    .login-btn {
+      background: #CDAA80;
+      color: #213A56;
+    }
+
+    .login-btn:hover {
+      background: #997953;
+      color: white;
+    }
+
+    .google-btn {
+      background: #fff;
+      color: #213a56;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid #CDAA80;
+    }
+
+    .google-btn:hover {
+      background: #CDAA80;
+      color: white;
+    }
+
+    .google-icon {
+      font-size: 1.3rem;
+      color: #db4437;
+    }
+
+    .redirect-text {
+      margin-top: 15px;
+      font-size: 0.9rem;
+      color: #213A56;
+    }
+
+    .redirect-text span {
+      color: #CDAA80;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .redirect-text span:hover {
+      color: #997953;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="about.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+    <div class="logo">CareerPilot</div>
+    </a>
+  </nav>
+
+  <!-- Auth Container -->
+  <div class="auth-container">
+    <div class="auth-card">
+
+      <!-- Login -->
+      <div id="loginPage">
+        <h2>Login</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="loginEmail" placeholder="Enter your email" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="loginPassword" placeholder="Enter your password" required />
+          </div>
+          <button type="submit" class="btn login-btn">Login</button>
+        </form>
+
+        <button id="googleLogin" class="btn google-btn">
+          <i class="fab fa-google google-icon"></i>
+          Login with Google
+        </button>
+
+        <p class="redirect-text">
+          Don’t have an account? <span onclick="showSignin()">Sign Up</span>
+        </p>
+      </div>
+
+      <!-- Sign-up -->
+      <div id="signinPage" style="display: none;">
+        <h2>Sign Up</h2>
+        <form id="signinForm">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" id="signinEmail" placeholder="Enter your email" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" id="signinPassword" placeholder="Create a password" required />
+          </div>
+          <button type="submit" class="btn login-btn">Sign Up</button>
+        </form>
+
+        <p class="redirect-text">
+          Already have an account? <span onclick="showLogin()">Login</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Functions to show tabs
+  function showSignin() {
+    document.getElementById("loginPage").style.display = "none";
+    document.getElementById("signinPage").style.display = "block";
+  }
+
+  function showLogin() {
+    document.getElementById("signinPage").style.display = "none";
+    document.getElementById("loginPage").style.display = "block";
+  }
+
+  // Check URL hash to open correct tab
+  window.addEventListener('load', () => {
+    const hash = window.location.hash;
+    if(hash === "#signup") {
+      showSignin();
+    } else {
+      showLogin(); // default
+    }
+  });
+
+  // Sign Up
+  document.getElementById("signinForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("signinEmail").value;
+    const password = document.getElementById("signinPassword").value;
+
+    localStorage.setItem("careerpilotUser", JSON.stringify({ name, email, password }));
+    alert("Account created successfully ✅ Please login now.");
+    showLogin();
+  });
+
+  // Login
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const email = document.getElementById("loginEmail").value;
+    const password = document.getElementById("loginPassword").value;
+
+    const savedUser = JSON.parse(localStorage.getItem("careerpilotUser"));
+
+    if (savedUser && email === savedUser.email && password === savedUser.password) {
+      alert(`Welcome ${savedUser.name} 🎉 Redirecting to Home Page...`);
+      window.location.href = "home.html";
+    } else {
+      alert("Invalid Email or Password ❌");
+    }
+  });
+
+  // Dummy Google login
+  document.getElementById("googleLogin").addEventListener("click", function () {
+    alert("Google Login (Dummy)");
+  });
+</script>
+</body>
+</html>

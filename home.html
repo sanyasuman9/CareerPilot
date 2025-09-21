@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Pilot</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f1e3f, #213a56, #edaa80);
+      color: #fff;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(15, 30, 63, 0.95);
+      padding: 18px 50px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav .brand {
+      font-size: 1.8rem;
+      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+
+    nav .brand i {
+      color: #997953;
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+
+    nav .center-links {
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav .center-links li {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.3s;
+    }
+
+    nav .center-links li i {
+      color: #edaa80;
+    }
+
+    nav .center-links li:hover {
+      color: #edaa80;
+    }
+
+    nav .auth-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    nav .auth-buttons button {
+      background-color: #997953;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    nav .auth-buttons button:hover {
+      background-color: #edaa80;
+      color: #0f1e3f;
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero .compass-icon {
+      font-size: 3rem;
+      color: #997953;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+
+    .hero h1.guidance {
+      color: #edaa80;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 750px;
+      margin: 25px auto 40px;
+      line-height: 1.8;
+      color: #f1f1f1;
+      font-weight: 400;
+    }
+
+    .hero button {
+      background-color: #997953;
+      border: none;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0px 6px 12px rgba(0,0,0,0.25);
+    }
+
+    .hero button:hover {
+      background-color: #edaa80;
+      color: #0f1e3f;
+      transform: translateY(-3px);
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.35);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="brand">
+      <a href="about.html" style="text-decoration: none; color: inherit; display: flex; align-items: center;">
+      <i class="fas fa-compass"></i> Career Pilot
+      </a>
+    </div>
+    <ul class="center-links">
+      <li onclick="window.location.href='chatbot.html'"><i class="fas fa-robot"></i> AI Chatbot</li>
+      <li class="active" onclick="window.location.href='roadmap.html'"><i class="fas fa-project-diagram"></i> Roadmaps</li>
+      <li class="active" onclick="window.location.href='pagecourse.html'"><i class="fas fa-book-open"></i> Courses</li>
+    </ul>
+    <div class="auth-buttons">
+      <button onclick="window.location.href='signinlogin.html#login'">Login</button>
+  <button onclick="window.location.href='signinlogin.html#signup'">Sign Up</button>
+
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    
+    <h1>Navigate Your Career with</h1>
+    <h1 class="guidance">AI-Powered Guidance</h1>
+    <p>
+      Discover your ideal career path through intelligent conversations.  
+      Get personalized recommendations, structured learning roadmaps,  
+      and curated resources to achieve your professional goals.
+    </p>
+    <button class="start-btn" onclick="window.location.href='about.html'">Start Your Journey</button>
+  </section>
+</body>
+</html>
